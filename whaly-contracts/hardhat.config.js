@@ -8,7 +8,7 @@ module.exports = {
     hardhat: {
       chainId: 1337,
     },
-    scrollTestnet: {
+    scrollSepolia: {
       url: process.env.NETWORK_HOST_SCROLL_TESTNET,
       accounts: [process.env.OWNER_PK_TEST],
       chainId: 534351,
@@ -43,11 +43,12 @@ module.exports = {
       },
     },
   },
+
   etherscan: {
     apiKey: {
       linea_mainnet: process.env.LINEA_API_KEY,
       base: process.env.BASE_API_KEY,
-      scrollTestnet: process.env.SCROLL_API_KEY,
+      scrollSepolia: process.env.SCROLL_API_KEY,
     },
     customChains: [
       {
@@ -56,6 +57,14 @@ module.exports = {
         urls: {
           apiURL: "https://api.lineascan.build/api",
           browserURL: "https://lineascan.build/",
+        },
+      },
+      {
+        network: "scrollSepolia",
+        chainId: 534351,
+        urls: {
+          apiURL: "https://sepolia-blockscout.scroll.io/api",
+          browserURL: "https://sepolia-blockscout.scroll.io/",
         },
       },
     ],
