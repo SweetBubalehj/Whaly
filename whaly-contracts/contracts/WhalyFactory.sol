@@ -15,9 +15,11 @@ interface IERC {
 }
 
 contract WlahyFactory is ERC721, ReentrancyGuard, Ownable {
-    mapping(address => bool) public isTokenWhaly;
-    mapping(address => uint) public tokenToThread;
-    address[] public threads;
+    mapping(address => bool) public isTokenThreaded;
+    mapping(address => uint) public nftTokenIdToThreadToken;
+    mapping(address => address) public tokenToThreadAddress;
+    address[] public threadTokens;
+    address[] public threadAddresses;
 
     // ipfs://.../
     string ipfsBaseURI;
@@ -44,17 +46,33 @@ contract WlahyFactory is ERC721, ReentrancyGuard, Ownable {
         return false;
     }
 
-    function mintThread(address _token) public nonReentrant {
+    function isEmptyString(string memory _string) internal pure returns (bool) {
+        return bytes(_string).length == 0;
+    }
+
+    function mintThread(
+        address _token,
+        string memory comment
+    ) public nonReentrant {
         require(isERC(_token), "Not ERC");
-        require(!isTokenWhaly[_token], "Already minted");
+        require(!isTokenThreaded[_token], "Already minted");
+        require(!isEmptyString(comment), "Empty comment");
 
-        isTokenWhaly[_token] = true;
-        tokenToThread[_token] = threads.length;
-        threads.push(_token);
+        WhalyThread thread = new WhalyThread(
+            _token,
+            threadTokens.length,
+            comment
+        );
 
-        _safeMint(msg.sender, threads.length);
+        isTokenThreaded[_token] = true;
+        nftTokenIdToThreadToken[_token] = threadTokens.length;
+        tokenToThreadAddress[_token] = address(thread);
+        threadTokens.push(_token);
+        threadAddresses.push(address(thread));
 
-        emit MintThread(_token, threads.length);
+        _safeMint(msg.sender, threadTokens.length);
+
+        emit MintThread(_token, threadTokens.length);
     }
 
     /**
