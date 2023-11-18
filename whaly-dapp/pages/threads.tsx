@@ -1,5 +1,7 @@
+import Lottie from "lottie-react";
 import ThreadCard from "../components/Cards/ThreadCard";
 import { useThreadList } from "../hooks/useThreadList";
+import loading from "../static/lottie/loading.json";
 
 const Threads = () => {
   const { threadData, isLoading } = useThreadList();
@@ -17,24 +19,30 @@ const Threads = () => {
           Place, where token power shapes conversations
         </div>
       </div>
-      <div className="threads__container">
-        {threadData.map((data, index) => (
-          <div className="threads__container__grid" key={index}>
-            {data.contractAddresses.map((contractAddress, innerIndex) => (
-              <ThreadCard
-                key={innerIndex}
-                chainId={data.chainId}
-                contractAddress={contractAddress}
-                tokenAddress={data.tokenAddresses[innerIndex]}
-                commentCount={data.commentCounts[innerIndex]}
-                tokenSymbol={data.tokenSymbols[innerIndex]}
-                whaleAddress={data.whaleAddresses[innerIndex]}
-                totalBalance={data.totalBalances[innerIndex]}
-              />
-            ))}
-          </div>
-        ))}
-      </div>
+      {isLoading ? (
+        <div style={{ width: 78, margin: "50px auto" }}>
+          <Lottie animationData={loading} />
+        </div>
+      ) : (
+        <div className="threads__container">
+          {threadData.map((data, index) => (
+            <div className="threads__container__grid" key={index}>
+              {data.contractAddresses.map((contractAddress, innerIndex) => (
+                <ThreadCard
+                  key={innerIndex}
+                  chainId={data.chainId}
+                  contractAddress={contractAddress}
+                  tokenAddress={data.tokenAddresses[innerIndex]}
+                  commentCount={data.commentCounts[innerIndex]}
+                  tokenSymbol={data.tokenSymbols[innerIndex]}
+                  whaleAddress={data.whaleAddresses[innerIndex]}
+                  totalBalance={data.totalBalances[innerIndex]}
+                />
+              ))}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
