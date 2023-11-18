@@ -1,0 +1,435 @@
+.create-thread,
+.create-thread * {
+  box-sizing: border-box;
+}
+
+.popup-thread {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(9, 9, 9, 0.87);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 150;
+}
+.create-thread {
+  background: #000000;
+  border-radius: 24px;
+  border-style: solid;
+  border-color: #3a3a3a;
+  border-width: 1px;
+  padding: 40px 32px 40px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: flex-end;
+  width: 484px;
+  position: relative;
+  overflow: hidden;
+}
+.create-thread-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.h-1 {
+  color: var(--white, #ffffff);
+  text-align: center;
+  font: 400 24px "-", sans-serif;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.h-1-span {
+  color: var(--white, #ffffff);
+  font: 400 24px "TtFirsNeueTrl-DemiBold", sans-serif;
+}
+.h-1-span2 {
+  color: var(--white, #ffffff);
+  font: 400 24px "TtFirsNeueTrl-Regular", sans-serif;
+}
+.text {
+  text-align: left;
+  font: 400 18px "-", sans-serif;
+  position: relative;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.text-span {
+  color: #bbbbbb;
+  font: 400 18px "TtFirsNeueTrl-Regular", sans-serif;
+}
+.text-span2 {
+  color: #1472f4;
+  font: 500 18px "TtFirsNeueTrl-Medium", sans-serif;
+}
+.create-thread-network {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+  justify-content: flex-end;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.create-thread-network-placeholder {
+  color: #ffffff;
+  /* text-align: left; */
+  font: 500 14px "TtFirsNeueTrl-Medium", sans-serif;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.create-thread-network-input {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  flex-shrink: 0;
+  height: 50px;
+  position: relative;
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.1);
+}
+.create-thread-network-icon {
+  border-radius: 100px;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  position: relative;
+}
+.image-17 {
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 0%;
+  top: 0%;
+  height: 100%;
+}
+.create-thread-network-name {
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  position: relative;
+}
+.ethereum {
+  text-align: left;
+  font: 400 16px/20px "TtFirsNeueTrl-DemiBold", sans-serif;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.ethereum-span {
+  color: var(--midnight-connect-button-text, #ffffff);
+  font: 400 16px/20px "TtFirsNeueTrl-DemiBold", sans-serif;
+}
+.ethereum-span2 {
+  color: rgba(168, 168, 168, 0);
+  font: 400 16px/20px "TtFirsNeueTrl-DemiBold", sans-serif;
+}
+.create-thread-network-dd-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  overflow: visible;
+}
+.create-thread-contract {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+  justify-content: flex-end;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.create-thread-contract-placeholder {
+  color: #ffffff;
+  text-align: left;
+  font: 500 14px "TtFirsNeueTrl-Medium", sans-serif;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.create-thread-contract-input {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
+  padding: 0px 16px 0px 16px;
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  flex-shrink: 0;
+  height: 48px;
+  position: relative;
+  color: #fff;
+  font-size: 14px;
+}
+.create-thread-contract-text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: center;
+  flex: 1;
+  position: relative;
+}
+.atom {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 297px;
+  position: relative;
+}
+.inactive-title {
+  color: var(--_2-text, #a7a7a7);
+  text-align: left;
+  font: 500 16px "TtFirsNeueTrl-Medium", sans-serif;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.create-thread-ticker {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+  justify-content: flex-end;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.create-thread-ticker-ph {
+  color: #ffffff;
+  text-align: left;
+  font: 500 14px "TtFirsNeueTrl-Medium", sans-serif;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.create-thread-ticker-input {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
+  padding: 0px 16px 0px 16px;
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  flex-shrink: 0;
+  height: 48px;
+  position: relative;
+}
+.create-thread-ticker-text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: center;
+  flex: 1;
+  position: relative;
+}
+.create-thread-ticker-text-wrapped {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 297px;
+  position: relative;
+}
+.create-thread-ticker-text-wrappeddd {
+  color: var(--_2-text, #a7a7a7);
+  text-align: left;
+  font: 500 16px "TtFirsNeueTrl-Medium", sans-serif;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.create-thread-message {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+  justify-content: flex-end;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.create-thread-message-ph {
+  color: #ffffff;
+  text-align: left;
+  font: 500 14px "TtFirsNeueTrl-Medium", sans-serif;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.create-thread-message-input {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  height: 108px;
+  position: relative;
+}
+.create-thread-message-input-ph-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: center;
+  flex: 1;
+  position: relative;
+}
+.create-thread-message-input-ff {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 297px;
+  position: relative;
+}
+.create-thread-message-input-t-text {
+  color: var(--_2-text, #a7a7a7);
+  text-align: left;
+  font: 500 16px "TtFirsNeueTrl-Medium", sans-serif;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.create-thread-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: flex-end;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.create-thread-footer-wrapped {
+  border-radius: 12px;
+  border-style: solid;
+  border-color: #1a1a1a;
+  border-width: 1px;
+  padding: 12px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+.create-thread-footer-emoji {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  position: relative;
+}
+.create-thread-footer-text {
+  color: #bbbbbb;
+  text-align: left;
+  font: 500 12px "TtFirsNeueTrl-Medium", sans-serif;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.button {
+  background: linear-gradient(
+    267.74deg,
+    rgba(0, 56, 255, 1) 0%,
+    rgba(48, 196, 228, 1) 100%
+  );
+  border-radius: 8px;
+  padding: 12px 24px 12px 24px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  flex-shrink: 0;
+  height: 47px;
+  position: relative;
+  box-shadow: 0px 6px 24px 0px rgba(0, 56, 255, 0.5);
+}
+.connect-wallet {
+  color: var(--white, #ffffff);
+  text-align: center;
+  font: 400 18px "TtFirsNeueTrl-DemiBold", sans-serif;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cross {
+  border-radius: 71px;
+  padding: 12px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: auto;
+  position: relative;
+  overflow: visible;
+}
+
+.close_button {
+  position: absolute;
+  top: 10px;
+  right: 6px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
