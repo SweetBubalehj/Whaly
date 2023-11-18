@@ -311,8 +311,13 @@
   justify-content: flex-start;
   align-self: stretch;
   flex-shrink: 0;
-  height: 108px;
+  min-height: 108px;
+  max-height: 108px;
+  max-width: 100%;
+  min-width: 100%;
   position: relative;
+  color: #fff;
+  font-size: 14px;
 }
 .create-thread-message-input-ph-2 {
   display: flex;
@@ -399,6 +404,7 @@
   align-self: stretch;
   flex-shrink: 0;
   height: 47px;
+  cursor: pointer;
   position: relative;
   box-shadow: 0px 6px 24px 0px rgba(0, 56, 255, 0.5);
 }

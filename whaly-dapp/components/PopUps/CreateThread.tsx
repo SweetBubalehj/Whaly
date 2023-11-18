@@ -2,9 +2,15 @@ import { motion } from "framer-motion";
 import styles from "./CreateThread.module.css";
 import { useState, useEffect, useRef } from "react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import { useContractRead } from "wagmi";
+import {
+  useContractRead,
+  useContractWrite,
+  usePrepareContractWrite,
+} from "wagmi";
 import { factoryABI } from "../../Constants/Contracts";
 import { useChainData } from "../../hooks/useChainData";
+import emoji from "../../static/png/glassesEmoji.png";
+import Image from "next/image";
 
 interface PopUpProps {
   onClose: any;
@@ -14,6 +20,10 @@ const isEthereumAddress = (address: string) => {
   return /^0x[a-fA-F0-9]{40}$/.test(address);
 };
 
+const isEmptyString = (str: string) => {
+  return str.trim().length === 0;
+};
+
 const CreateThread: React.FC<PopUpProps> = ({ onClose }) => {
   const modalRef = useRef<HTMLDivElement | null>(null);
   const { chainData } = useChainData();
@@ -21,6 +31,7 @@ const CreateThread: React.FC<PopUpProps> = ({ onClose }) => {
   const [tokenAddress, setTokenAddress] = useState<`0x${string}` | undefined>(
     undefined
   );
+  const [text, setText] = useState<string | undefined>(undefined);
 
   const placeAddress = (e: `0x${string}`) => {
     if (isEthereumAddress(e)) {
@@ -30,10 +41,32 @@ const CreateThread: React.FC<PopUpProps> = ({ onClose }) => {
     }
   };
 
+  const placeTextarea = (e: string) => {
+    setText(e);
+  };
+
+  const { config } = usePrepareContractWrite({
+    address: chainData?.contractAddress,
+    abi: factoryABI,
+    functionName: "mintThread",
+    args: [tokenAddress, text],
+    chainId: chainData?.id,
+  });
+
+  const { write: mintThread } = useContractWrite(config);
+
   const { data: isERC } = useContractRead({
     address: chainData?.contractAddress,
     abi: factoryABI,
     functionName: "isERC",
+    args: [tokenAddress],
+    chainId: chainData?.id,
+  });
+
+  const { data: isThreadExist } = useContractRead({
+    address: chainData?.contractAddress,
+    abi: factoryABI,
+    functionName: "isTokenThreaded",
     args: [tokenAddress],
     chainId: chainData?.id,
   });
@@ -140,8 +173,14 @@ const CreateThread: React.FC<PopUpProps> = ({ onClose }) => {
             style={{ border: 0 }}
             className={styles["create-thread-contract-input"]}
           ></input>
+
+          {!tokenAddress && (
+            <p style={{ color: "#e35f5fdb", fontSize: 14 }}>
+              Token address should be correct
+            </p>
+          )}
         </div>
-        {symbol !== undefined && (
+        {symbol !== undefined && isERC !== undefined && isERC && (
           <div className={styles["create-thread-ticker"]}>
             <div className={styles["create-thread-ticker-ph"]}>
               Token symbol
@@ -157,31 +196,35 @@ const CreateThread: React.FC<PopUpProps> = ({ onClose }) => {
                 </div>
               </div>
             </div>
+
+            {isThreadExist !== undefined && isThreadExist && (
+              <p style={{ color: "#e35f5fdb", fontSize: 14 }}>
+                Token already has a thread
+              </p>
+            )}
           </div>
         )}
         <div className={styles["create-thread-message"]}>
           <div className={styles["create-thread-message-ph"]}>Message </div>
-          <div className={styles["create-thread-message-input"]}>
-            <div className={styles["create-thread-message-input-ph-2"]}>
-              <div className={styles["create-thread-message-input-ff"]}>
-                <div className={styles["create-thread-message-input-t-text"]}>
-                  What’s on your mind?{" "}
-                </div>
-              </div>
-            </div>
-          </div>
+          <textarea
+            style={{ border: 0 }}
+            onChange={(e) => placeTextarea(e.target.value)}
+            className={styles["create-thread-message-input"]}
+          ></textarea>
+          {text !== undefined && isEmptyString(text) && (
+            <p style={{ color: "#e35f5fdb", fontSize: 14 }}>
+              You have to write something
+            </p>
+          )}
         </div>
         <div className={styles["create-thread-footer"]}>
           <div className={styles["create-thread-footer-wrapped"]}>
-            <img
-              className={styles["create-thread-footer-emoji"]}
-              src="create-thread-footer-emoji0.png"
-            />
+            <Image src={emoji} alt={"emoji"} width={24} />
             <div className={styles["create-thread-footer-text"]}>
               You will get a unique NFT of the token thread creator{" "}
             </div>
           </div>
-          <div className={styles["button"]}>
+          <div className={styles["button"]} onClick={() => mintThread?.()}>
             <div className={styles["connect-wallet"]}>Create thread </div>
           </div>
         </div>

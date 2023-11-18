@@ -1,9 +1,11 @@
 import Image, { StaticImageData } from "next/image";
 import { motion } from "framer-motion";
 import { minidenticon } from "minidenticons";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import MinidenticonImg from "../MinidactionImg";
 import { useChainData } from "../../hooks/useChainData";
+import { useContractRead } from "wagmi";
+import { ethers } from "ethers";
 
 interface Thread {
   chainId: number;
@@ -28,6 +30,9 @@ const ThreadCard: React.FC<Thread> = ({
 
   const chain = getChainDataByChainId(chainId);
   const [isCopied, setIsCopied] = useState(false);
+  const [tokenDecimals, setTokenDecimals] = useState<number | undefined>(
+    undefined
+  );
 
   const copyAddress = () => {
     if (navigator && navigator.clipboard) {
@@ -39,6 +44,28 @@ const ThreadCard: React.FC<Thread> = ({
       });
     }
   };
+
+  useEffect(() => {
+    const getTokenDecimals = async () => {
+      if (totalBalance > 10 ** 2) {
+        try {
+          const tokenContract = new ethers.Contract(
+            tokenAddress,
+            ["function decimals() view returns (uint8)"],
+            chain.provider
+          );
+          const decimals = await tokenContract.decimals();
+          setTokenDecimals(decimals);
+        } catch (error) {
+          console.error("Failed to get token decimals:", error);
+        }
+      } else {
+        setTokenDecimals(undefined);
+      }
+    };
+
+    getTokenDecimals();
+  }, [tokenAddress, totalBalance]);
 
   return (
     <motion.div
@@ -109,7 +136,12 @@ const ThreadCard: React.FC<Thread> = ({
           <div className="thread-param-1">
             <div className="thread-volume">📈 Thread Volume</div>
             <div className="thread-wallet-adress2">
-              {Number(totalBalance)} {tokenSymbol}
+              {Number(
+                tokenDecimals !== undefined
+                  ? totalBalance / 10 ** 18
+                  : totalBalance
+              )}{" "}
+              {tokenSymbol}
             </div>
           </div>
           <div className="line-4"></div>

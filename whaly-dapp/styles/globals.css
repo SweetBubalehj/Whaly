@@ -75,10 +75,10 @@ body {
   display: flex;
   justify-content: center;
   padding: 0 24px 0 24px;
-  /* width: 100%; */
+  /* width: 90%; */
 }
 
-.thread__container__grid {
+.threads__container__grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
