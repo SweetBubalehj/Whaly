@@ -233,6 +233,19 @@
   },
   {
     "inputs": [],
+    "name": "getThreadTokenSymbols",
+    "outputs": [
+      {
+        "internalType": "string[]",
+        "name": "",
+        "type": "string[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "getThreadTokens",
     "outputs": [
       {
@@ -259,12 +272,12 @@
   },
   {
     "inputs": [],
-    "name": "getTokenSymbols",
+    "name": "getThreadTotalBalances",
     "outputs": [
       {
-        "internalType": "string[]",
+        "internalType": "uint256[]",
         "name": "",
-        "type": "string[]"
+        "type": "uint256[]"
       }
     ],
     "stateMutability": "view",

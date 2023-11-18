@@ -133,7 +133,7 @@ contract WhalyThread is ReentrancyGuard {
     }
 
     /**
-     * @dev Checks if a string is empty.
+     * @dev Checks i    f a string is empty.
      * @param _string The string to check.
      * @return A boolean indicating whether the string is empty or not.
      */
@@ -169,6 +169,20 @@ contract WhalyThread is ReentrancyGuard {
         }
 
         return balances;
+    }
+
+    /**
+     * @dev Gets the total balance of the addresses that have commented.
+     * @return The total balance.
+     */
+    function getTotalBalance() public view returns (uint) {
+        uint totalBalance = 0;
+
+        for (uint i = 0; i < commentedAddresses.length; i++) {
+            totalBalance += IERC(token).balanceOf(commentedAddresses[i]);
+        }
+
+        return totalBalance;
     }
 
     /**

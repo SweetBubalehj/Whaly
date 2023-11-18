@@ -10,6 +10,8 @@ interface IWhalyThread {
     function getCommentsCount() external view returns (uint);
 
     function getTopAddress() external view returns (address);
+
+    function getTotalBalance() external view returns (uint);
 }
 
 /**
@@ -81,9 +83,9 @@ contract WhalyFactory is ERC721, ReentrancyGuard, Ownable {
 
         WhalyThread thread = new WhalyThread(
             _token,
+            msg.sender,
             threadTokens.length,
-            comment,
-            msg.sender
+            comment
         );
 
         isTokenThreaded[_token] = true;
@@ -153,7 +155,7 @@ contract WhalyFactory is ERC721, ReentrancyGuard, Ownable {
      * @dev Returns an array of token symbols for each thread token.
      * @return An array of token symbols.
      */
-    function getTokenSymbols() public view returns (string[] memory) {
+    function getThreadTokenSymbols() public view returns (string[] memory) {
         string[] memory tokenSymbols = new string[](threadTokens.length);
 
         for (uint i = 0; i < threadTokens.length; i++) {
@@ -180,6 +182,21 @@ contract WhalyFactory is ERC721, ReentrancyGuard, Ownable {
         }
 
         return commentCounts;
+    }
+
+    /**
+     * @dev Returns an array of total balances for each thread address.
+     * @return An array of total balances.
+     */
+    function getThreadTotalBalances() public view returns (uint[] memory) {
+        uint[] memory totalBalances = new uint[](threadAddresses.length);
+
+        for (uint i = 0; i < threadAddresses.length; i++) {
+            totalBalances[i] = IWhalyThread(threadAddresses[i])
+                .getTotalBalance();
+        }
+
+        return totalBalances;
     }
 
     /**
