@@ -29,8 +29,28 @@ const lineaWithIcon: ChainWithIcon = {
   iconUrl: "https://svgshare.com/i/yd3.svg",
 };
 
+const xdcWithIcon: ChainWithIcon = {
+  ...xdc,
+  iconUrl: "https://svgur.com/i/ztX.svg",
+};
+
+const mantleWithIcon: ChainWithIcon = {
+  ...mantle,
+  iconUrl: "https://svgshare.com/i/ztT.svg",
+};
+
+const celoWithIcon: ChainWithIcon = {
+  ...celo,
+  iconUrl: "https://svgur.com/i/zrb.svg",
+};
+
+const scrollSepoliaWithIcon: ChainWithIcon = {
+  ...scrollSepolia,
+  iconUrl: "https://svgur.com/i/zsL.svg",
+};
+
 const { chains, publicClient, webSocketPublicClient } = configureChains(
-  [base, lineaWithIcon, mantle, xdc, polygon, arbitrum, celo, scrollSepolia],
+  [base, lineaWithIcon, mantleWithIcon, xdcWithIcon, arbitrum, celoWithIcon, scrollSepoliaWithIcon],
   [publicProvider()]
 );
 

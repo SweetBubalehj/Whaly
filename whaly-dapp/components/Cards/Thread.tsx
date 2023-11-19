@@ -65,12 +65,12 @@ export const Thread: React.FC<IThread> = ({
   const { config: changeCommentConfig } = usePrepareContractWrite({
     address: contractAddress as `0x${string}`,
     abi: threadABI,
-    functionName: "addComment",
+    functionName: "changeComment",
     args: [text],
     chainId: chain.id,
   });
 
-  const { write: changeComment } = useContractWrite(addCommentConfig);
+  const { write: changeComment } = useContractWrite(changeCommentConfig);
 
   const writeContract = () => {
     if (message !== undefined) {
@@ -142,7 +142,7 @@ export const Thread: React.FC<IThread> = ({
           <div className={styles["thread-write-footer"]}>
             <div className={styles["button"]}>
               <div className={styles["connect-wallet"]} onClick={writeContract}>
-                Send message{" "}
+                {message !== undefined ? "Update Message" : "Send message"}
               </div>
             </div>
             <div className={styles["thread-write-footer-text"]}>

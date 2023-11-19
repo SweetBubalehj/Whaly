@@ -26,7 +26,7 @@ const contractData: ContractData[] = [
     provider: new ethers.providers.JsonRpcProvider(
       "https://sepolia-rpc.scroll.io/"
     ),
-    contractAddress: "0x276c85a5e0D3935cc6d89290fff9FD30F3F26208",
+    contractAddress: "0x989CAe3630af8534aB27d4C666B8C0615ad22C01",
   },
   //   {
   //     chainID: 42161,
