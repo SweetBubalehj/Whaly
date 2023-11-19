@@ -62,7 +62,7 @@ const getChainDataByChainId = (chainId: number): ChainData => {
     case 534351:
       return {
         id: contractData[0].chainID,
-        name: "tScroll",
+        name: "Scroll Sepolia",
         coin: "ETH",
         contractAddress: contractData[0].contractAddress,
         provider: contractData[0].provider,

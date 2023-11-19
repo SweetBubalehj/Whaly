@@ -56,7 +56,7 @@
 }
 .h-1-span2 {
   color: var(--white, #ffffff);
-  font: 400 24px "TtFirsNeueTrl-Regular", sans-serif;
+  font: 400 24px;
 }
 .text {
   text-align: left;
@@ -69,11 +69,11 @@
 }
 .text-span {
   color: #bbbbbb;
-  font: 400 18px "TtFirsNeueTrl-Regular", sans-serif;
+  font: 400 18px;
 }
 .text-span2 {
   color: #1472f4;
-  font: 500 18px "TtFirsNeueTrl-Medium", sans-serif;
+  font: 500 18px;
 }
 .create-thread-network {
   display: flex;
@@ -88,7 +88,7 @@
 .create-thread-network-placeholder {
   color: #ffffff;
   /* text-align: left; */
-  font: 500 14px "TtFirsNeueTrl-Medium", sans-serif;
+  font: 500 14px;
   position: relative;
   display: flex;
   align-items: center;
@@ -170,7 +170,7 @@
 .create-thread-contract-placeholder {
   color: #ffffff;
   text-align: left;
-  font: 500 14px "TtFirsNeueTrl-Medium", sans-serif;
+  font: 500 14px;
   position: relative;
   display: flex;
   align-items: center;
@@ -214,7 +214,7 @@
 .inactive-title {
   color: var(--_2-text, #a7a7a7);
   text-align: left;
-  font: 500 16px "TtFirsNeueTrl-Medium", sans-serif;
+  font: 500 16px;
   position: relative;
   display: flex;
   align-items: center;
@@ -233,7 +233,7 @@
 .create-thread-ticker-ph {
   color: #ffffff;
   text-align: left;
-  font: 500 14px "TtFirsNeueTrl-Medium", sans-serif;
+  font: 500 14px;
   position: relative;
   display: flex;
   align-items: center;
@@ -275,7 +275,7 @@
 .create-thread-ticker-text-wrappeddd {
   color: var(--_2-text, #a7a7a7);
   text-align: left;
-  font: 500 16px "TtFirsNeueTrl-Medium", sans-serif;
+  font: 500 16px;
   position: relative;
   display: flex;
   align-items: center;
@@ -294,7 +294,7 @@
 .create-thread-message-ph {
   color: #ffffff;
   text-align: left;
-  font: 500 14px "TtFirsNeueTrl-Medium", sans-serif;
+  font: 500 14px;
   position: relative;
   display: flex;
   align-items: center;
@@ -341,7 +341,7 @@
 .create-thread-message-input-t-text {
   color: var(--_2-text, #a7a7a7);
   text-align: left;
-  font: 500 16px "TtFirsNeueTrl-Medium", sans-serif;
+  font: 500 16px;
   position: relative;
   display: flex;
   align-items: center;
@@ -382,7 +382,7 @@
 .create-thread-footer-text {
   color: #bbbbbb;
   text-align: left;
-  font: 500 12px "TtFirsNeueTrl-Medium", sans-serif;
+  font: 500 12px;
   position: relative;
   display: flex;
   align-items: center;
