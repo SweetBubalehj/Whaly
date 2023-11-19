@@ -41,7 +41,14 @@ const ThreadPage: React.FC = () => {
                 totalBalance={Number(BigNumber.from(threadData.totalBalance))}
                 isButtonHidden={true}
               />
-              <Thread_Page />
+              <Thread_Page 
+                chainId={threadData.chainId}
+                contractAddress={threadData.contractAddress}
+                tokenAddress={threadData.tokenAddress}
+                commentCount={Number(BigNumber.from(threadData.commentCount))}
+                tokenSymbol={threadData.tokenSymbol}
+                whaleAddress={threadData.whaleAddress}
+                totalBalance={Number(BigNumber.from(threadData.totalBalance))}/>
             </div>
           </div>
         </div>

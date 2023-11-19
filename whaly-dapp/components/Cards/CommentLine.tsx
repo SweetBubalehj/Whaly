@@ -6,7 +6,7 @@ type Comment = {
   comment: string;
   symbol: string;
   balance: number;
-  decimals: number;
+  decimals?: number;
   whale?: boolean;
 };
 
@@ -86,7 +86,7 @@ const CommentLine: React.FC<Comment> = ({
                   styles["thread-written-message-mssg-footer-balance-count"]
                 }
               >
-                {balance / 10 ** decimals + " " + symbol}
+                {decimals ? balance / 10 ** decimals : balance + " " + symbol}
               </div>
             </div>
             {/* <div className={styles["thread-written-message-mssg-footer-date"]}>

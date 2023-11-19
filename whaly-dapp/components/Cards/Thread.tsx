@@ -1,8 +1,54 @@
 /* Code generated with AutoHTML Plugin for Figma */
 import styles from "./Thread.module.css";
 import CommentLine from "./CommentLine";
+import { useCommentList } from "../../hooks/useCommentList";
 
-export const Thread = () => {
+import { Thread as IThread } from "./ThreadCard";
+import { useEffect, useState } from "react";
+import { ethers } from "ethers";
+import { useChainData } from "../../hooks/useChainData";
+
+export const Thread: React.FC<IThread> = ({
+  chainId,
+  contractAddress,
+  tokenAddress,
+  commentCount,
+  tokenSymbol,
+  whaleAddress,
+  totalBalance,
+  isButtonHidden,
+}) => {
+  const { commentData, isLoading } = useCommentList(chainId, contractAddress);
+  const { getChainDataByChainId } = useChainData();
+
+  const chain = getChainDataByChainId(chainId);
+
+  const [tokenDecimals, setTokenDecimals] = useState<number | undefined>(
+    undefined
+  );
+
+  useEffect(() => {
+    const getTokenDecimals = async () => {
+      if (totalBalance > 10 ** 2) {
+        try {
+          const tokenContract = new ethers.Contract(
+            tokenAddress,
+            ["function decimals() view returns (uint8)"],
+            chain.provider
+          );
+          const decimals = await tokenContract.decimals();
+          setTokenDecimals(decimals);
+        } catch (error) {
+          console.error("Failed to get token decimals:", error);
+        }
+      } else {
+        setTokenDecimals(undefined);
+      }
+    };
+
+    getTokenDecimals();
+  }, [tokenAddress, totalBalance]);
+
   return (
     <div className={styles["thread"]}>
       <div className={styles["thread-write"]}>
@@ -20,8 +66,17 @@ export const Thread = () => {
           </div>
         </div>
       </div>
-
-      <CommentLine address={"0xDcD6d7D4D3A4967A7EB3A80074588b0641F97d0f"} />
+      {commentData.map((data, index) => (
+        <CommentLine
+          key={index}
+          comment={data.comment}
+          address={data.address}
+          balance={data.balance}
+          symbol={tokenSymbol}
+          decimals={tokenDecimals}
+          whale={index === 0}
+        />
+      ))}
     </div>
   );
 };
