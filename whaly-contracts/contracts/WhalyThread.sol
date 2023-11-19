@@ -14,6 +14,7 @@ interface IERC {
 contract WhalyThread is ReentrancyGuard {
     struct Comment {
         string content;
+        uint time;
         uint likes;
         mapping(address => bool) likedBy;
     }
@@ -27,15 +28,21 @@ contract WhalyThread is ReentrancyGuard {
     /**
      * @dev Constructor function that initializes the contract.
      * @param _token The address of the token contract.
+     * @param sender The address of the sender.
      * @param _whalyTokenId The ID of the Whaly token.
      * @param _comment The initial comment for the sender.
      */
-    constructor(address _token, uint256 _whalyTokenId, string memory _comment) {
+    constructor(
+        address _token,
+        address sender,
+        uint256 _whalyTokenId,
+        string memory _comment
+    ) {
         token = _token;
         whalyTokenId = _whalyTokenId;
 
-        addressToComment[msg.sender].content = _comment;
-        commentedAddresses.push(msg.sender);
+        addressToComment[sender].content = _comment;
+        commentedAddresses.push(sender);
     }
 
     /**
@@ -50,6 +57,7 @@ contract WhalyThread is ReentrancyGuard {
         );
 
         addressToComment[msg.sender].content = _comment;
+        addressToComment[msg.sender].time = block.timestamp;
         commentedAddresses.push(msg.sender);
     }
 
@@ -64,6 +72,21 @@ contract WhalyThread is ReentrancyGuard {
 
         removeAddressFromArray(msg.sender);
         delete addressToComment[msg.sender];
+    }
+
+    /**
+     * @dev Changes the comment of the sender.
+     * @param _comment The new content of the comment.
+     */
+    function changeComment(string memory _comment) public nonReentrant {
+        require(!isEmptyString(_comment), "Empty comment");
+        require(
+            !isEmptyString(addressToComment[msg.sender].content),
+            "No comment"
+        );
+
+        addressToComment[msg.sender].content = _comment;
+        addressToComment[msg.sender].time = block.timestamp;
     }
 
     /**
@@ -127,7 +150,7 @@ contract WhalyThread is ReentrancyGuard {
     }
 
     /**
-     * @dev Checks if a string is empty.
+     * @dev Checks i    f a string is empty.
      * @param _string The string to check.
      * @return A boolean indicating whether the string is empty or not.
      */
@@ -144,6 +167,14 @@ contract WhalyThread is ReentrancyGuard {
     }
 
     /**
+     * @dev Gets the addresses that have commented.
+     * @return An array of addresses.
+     */
+    function getCommentedAddresses() public view returns (address[] memory) {
+        return commentedAddresses;
+    }
+
+    /**
      * @dev Gets the balances of the addresses that have commented.
      * @return An array of balances.
      */
@@ -155,5 +186,40 @@ contract WhalyThread is ReentrancyGuard {
         }
 
         return balances;
+    }
+
+    /**
+     * @dev Gets the total balance of the addresses that have commented.
+     * @return The total balance.
+     */
+    function getTotalBalance() public view returns (uint) {
+        uint totalBalance = 0;
+
+        for (uint i = 0; i < commentedAddresses.length; i++) {
+            totalBalance += IERC(token).balanceOf(commentedAddresses[i]);
+        }
+
+        return totalBalance;
+    }
+
+    /**
+     * @dev Gets the address with the highest balance.
+     * @return The address with the highest balance.
+     */
+    function getTopAddress() public view returns (address) {
+        address topAddress = commentedAddresses[0];
+        uint topBalance = IERC(token).balanceOf(topAddress);
+
+        for (uint i = 1; i < commentedAddresses.length; i++) {
+            address currentAddress = commentedAddresses[i];
+            uint currentBalance = IERC(token).balanceOf(currentAddress);
+
+            if (currentBalance > topBalance) {
+                topAddress = currentAddress;
+                topBalance = currentBalance;
+            }
+        }
+
+        return topAddress;
     }
 }

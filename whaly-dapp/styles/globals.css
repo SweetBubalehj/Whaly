@@ -1,0 +1,468 @@
+@font-face {
+  font-family: "TT Firs Neue Trl";
+  src: url("../public/fonts/TT\ Firs\ Neue\ Trial\ Light.ttf")
+    format("truetype");
+  font-weight: 300; /* Light */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TT Firs Neue Trl";
+  src: url("../public/fonts/TT\ Firs\ Neue\ Trial\ Regular.ttf")
+    format("truetype");
+  font-weight: 400; /* Regular */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TT Firs Neue Trl";
+  src: url("../public/fonts/TT\ Firs\ Neue\ Trial\ Medium.ttf")
+    format("truetype");
+  font-weight: 500; /* Medium */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TT Firs Neue Trl";
+  src: url("../public/fonts/TT\ Firs\ Neue\ Trial\ DemiBold.ttf")
+    format("truetype");
+  font-weight: 600; /* DemiBold */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TT Firs Neue Trl";
+  src: url("../public/fonts/TT\ Firs\ Neue\ Trial\ Bold.ttf") format("truetype");
+  font-weight: 700; /* Bold */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TT Firs Neue Trl";
+  src: url("../public/fonts/TT\ Firs\ Neue\ Trial\ ExtraBold.ttf")
+    format("truetype");
+  font-weight: 800; /* ExtraBold */
+  font-style: normal;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background: radial-gradient(
+      96.67% 96.67% at 50% 3.33%,
+      #141529 15.9%,
+      rgba(0, 0, 0, 0) 100%
+    ),
+    linear-gradient(181deg, #191a2b 0.42%, #000 99.52%);
+  font-family: "TT Firs Neue Trl";
+
+  height: 100%;
+  width: 100%;
+}
+
+.custom_connect_button button {
+  background: linear-gradient(
+    268deg,
+    #0038ff 5.99%,
+    #30c4e4 114.38%
+  ) !important;
+  box-shadow: 0px 6px 24px 0px rgba(0, 56, 255, 0.5) !important;
+}
+
+.threads__container {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  padding: 0 24px 0 24px;
+  /* width: 90%; */
+}
+
+.threads__container__grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.main-block-text,
+.main-block-text * {
+  box-sizing: border-box;
+}
+.main-block-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  position: relative;
+}
+.main-block-h-1 {
+  text-align: center;
+  font: 400 48px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main-block-h-1-span {
+  color: var(--white, #ffffff);
+  font: 400 48px;
+}
+.main-block-h-1-span2 {
+  color: #1472f4;
+  font: 400 48px;
+}
+.main-block-text2 {
+  color: #bbbbbb;
+  text-align: right;
+  font: 400 18px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.thread,
+.thread * {
+  box-sizing: border-box;
+}
+.thread {
+  background: rgba(0, 0, 0, 0.25);
+  max-width: 360px;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(27px);
+}
+.thread-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.thread-header {
+  align-self: stretch;
+  flex-shrink: 0;
+  height: 48px;
+  position: relative;
+}
+.thread-sub-header {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute;
+  left: 0px;
+  top: calc(50% - 24px);
+}
+.thread-logo {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  position: relative;
+}
+.image-16 {
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  left: calc(50% - 24px);
+  top: calc(50% - 24.5px);
+}
+.image-162 {
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 0%;
+  top: 0%;
+  height: 100%;
+}
+.thread-name {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: flex-start;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+}
+.thread-symbol {
+  color: #ffffff;
+  text-align: right;
+  font-weight: 400;
+  font-size: 18px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.thread-network {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  padding: 2px 4px 2px 4px;
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+  max-width: 103px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.thread-network-logo {
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  position: relative;
+}
+.thread-network-logo-2 {
+  background: linear-gradient(to left, #383838, #383838);
+  border-radius: 40px;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 0%;
+  top: 0%;
+  height: 100%;
+  box-shadow: 0px 2px 7.5px 0px rgba(0, 0, 0, 0.15);
+}
+.thread-network-name {
+  color: #bbbbbb;
+  text-align: center;
+  font-weight: 500;
+  font-size: 12px;
+  position: relative;
+  /* width: 42px; */
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.thread-button {
+  background: #2c2c2c;
+  border-radius: 8px;
+  padding: 12px 24px 12px 24px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  /* width: 107px; */
+  height: 32px;
+  position: absolute;
+  right: 0px;
+  top: calc(50% - 20px);
+  cursor: pointer;
+}
+.connect-wallet {
+  color: #ffffff;
+  text-align: right;
+  font-weight: 500;
+  font-size: 14px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.line-1 {
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.06);
+  border-width: 1px 0 0 0;
+  opacity: 0;
+  flex-shrink: 0;
+  width: 412px;
+  height: 0px;
+  position: relative;
+}
+.thread-param-1 {
+  align-self: stretch;
+  flex-shrink: 0;
+  height: 18px;
+  position: relative;
+}
+.contract {
+  color: #bbbbbb;
+  text-align: left;
+  font-weight: 400;
+  font-size: 14px;
+  position: absolute;
+  left: 0px;
+  top: calc(50% - 9px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.thread-wallet {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute;
+  right: 0px;
+  top: -3px;
+}
+.thread-wallet-icon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  position: relative;
+  overflow: visible;
+}
+.thread-wallet-adress {
+  color: #ffffff;
+  text-align: right;
+  font-weight: 500;
+  font-size: 16px;
+  text-decoration: underline;
+  position: relative;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+.line-4 {
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.06);
+  border-width: 1px 0 0 0;
+  align-self: stretch;
+  flex-shrink: 0;
+  height: 0px;
+  position: relative;
+}
+.thread-volume {
+  color: #bbbbbb;
+  text-align: left;
+  font-weight: 400;
+  font-size: 14px;
+  position: absolute;
+  left: 0px;
+  top: calc(50% - 9px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.thread-wallet-adress2 {
+  color: #ffffff;
+  text-align: right;
+  font-weight: 500;
+  font-size: 16px;
+  position: relative;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.messages {
+  color: #bbbbbb;
+  text-align: left;
+  font-weight: 400;
+  font-size: 14px;
+  position: absolute;
+  left: 0px;
+  top: calc(50% - 9px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.thread-wallet-adress3 {
+  color: #ffffff;
+  text-align: right;
+  font-weight: 500;
+  font-size: 16px;
+  position: relative;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.most-whaly {
+  color: #bbbbbb;
+  text-align: left;
+  font-weight: 400;
+  font-weight: 14px;
+  position: absolute;
+  left: 0px;
+  top: calc(50% - 9px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.most-whaly-span {
+  color: #bbbbbb;
+  font-weight: 700;
+  font-size: 14px;
+}
+.most-whaly-span2 {
+  color: #bbbbbb;
+  font-weight: 400;
+  font-size: 14px;
+}
+.thread-wallet2 {
+  background: -webkit-linear-gradient(
+    rgba(0, 177, 255, 1),
+    rgba(148, 222, 247, 1)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: right;
+  font-weight: 500;
+  font-size: 16px;
+  position: relative;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.thread_channel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.thread_channel__container {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  width: 90%;
+  max-width: 1372px;
+  min-width: 800px;
+  border-radius: 16px;
+}
+
+.thread_channel__container__content {
+  display: flex;
+  gap: 40px;
+}
+
+.back-to-the-threads {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 16px;
+  /* line-height: 18px; */
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  text-decoration: none;
+}

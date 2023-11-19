@@ -8,6 +8,10 @@ import "./WhalyThread.sol";
 
 interface IWhalyThread {
     function getCommentsCount() external view returns (uint);
+
+    function getTopAddress() external view returns (address);
+
+    function getTotalBalance() external view returns (uint);
 }
 
 /**
@@ -79,6 +83,7 @@ contract WhalyFactory is ERC721, ReentrancyGuard, Ownable {
 
         WhalyThread thread = new WhalyThread(
             _token,
+            msg.sender,
             threadTokens.length,
             comment
         );
@@ -131,6 +136,36 @@ contract WhalyFactory is ERC721, ReentrancyGuard, Ownable {
     }
 
     /**
+     * @dev Returns threadTokens array.
+     * @return The array of thread tokens.
+     */
+    function getThreadTokens() public view returns (address[] memory) {
+        return threadTokens;
+    }
+
+    /**
+     * @dev Returns threadAddresses array.
+     * @return The array of thread addresses.
+     */
+    function getThreadAddresses() public view returns (address[] memory) {
+        return threadAddresses;
+    }
+
+    /**
+     * @dev Returns an array of token symbols for each thread token.
+     * @return An array of token symbols.
+     */
+    function getThreadTokenSymbols() public view returns (string[] memory) {
+        string[] memory tokenSymbols = new string[](threadTokens.length);
+
+        for (uint i = 0; i < threadTokens.length; i++) {
+            tokenSymbols[i] = IERC(threadTokens[i]).symbol();
+        }
+
+        return tokenSymbols;
+    }
+
+    /**
      * @dev Returns an array of comment counts for each thread address.
      * @return An array of comment counts.
      */
@@ -147,5 +182,34 @@ contract WhalyFactory is ERC721, ReentrancyGuard, Ownable {
         }
 
         return commentCounts;
+    }
+
+    /**
+     * @dev Returns an array of total balances for each thread address.
+     * @return An array of total balances.
+     */
+    function getThreadTotalBalances() public view returns (uint[] memory) {
+        uint[] memory totalBalances = new uint[](threadAddresses.length);
+
+        for (uint i = 0; i < threadAddresses.length; i++) {
+            totalBalances[i] = IWhalyThread(threadAddresses[i])
+                .getTotalBalance();
+        }
+
+        return totalBalances;
+    }
+
+    /**
+     * @dev Returns an array of top addresses for each thread address.
+     * @return An array of top addresses.
+     */
+    function getThreadTopAddresses() public view returns (address[] memory) {
+        address[] memory topAddresses = new address[](threadAddresses.length);
+
+        for (uint i = 0; i < threadAddresses.length; i++) {
+            topAddresses[i] = IWhalyThread(threadAddresses[i]).getTopAddress();
+        }
+
+        return topAddresses;
     }
 }

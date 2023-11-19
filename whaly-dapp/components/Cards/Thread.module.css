@@ -1,0 +1,284 @@
+.thread,
+.thread * {
+  box-sizing: border-box;
+}
+.thread {
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 1007px;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(27px);
+}
+.thread-write {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.thread-write-input {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+  justify-content: flex-end;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.thread-write-ph {
+  color: #ffffff;
+  text-align: left;
+  font: 500 14px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.thread-write-inputt {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
+  border: 0;
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  max-height: 108px;
+  min-height: 108px;
+  max-width: 100%;
+  min-width: 100%;
+  position: relative;
+  font-size: 18px;
+  color: #fff;
+}
+
+.thread-write-footer {
+  align-self: stretch;
+  flex-shrink: 0;
+  height: 47px;
+  position: relative;
+}
+.button {
+  background: linear-gradient(
+    267.74deg,
+    rgba(0, 56, 255, 1) 0%,
+    rgba(48, 196, 228, 1) 100%
+  );
+  border-radius: 8px;
+  padding: 12px 24px 12px 24px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 205px;
+  height: 47px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  cursor: pointer;
+  box-shadow: 0px 6px 24px 0px rgba(0, 56, 255, 0.5);
+}
+.connect-wallet {
+  color: var(--white, #ffffff);
+  text-align: center;
+  font: 400 18px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.thread-write-footer-text {
+  color: #bbbbbb;
+  text-align: left;
+  font: 400 16px;
+  position: absolute;
+  left: 0px;
+  top: calc(50% - 23.5px);
+  width: 661px;
+  height: 47px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.line {
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.06);
+  border-width: 1px 0 0 0;
+  align-self: stretch;
+  flex-shrink: 0;
+  height: 0px;
+  position: relative;
+}
+.thread-written-message {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.thread-written-message-headeer {
+  align-self: stretch;
+  flex-shrink: 0;
+  height: 40px;
+  position: relative;
+}
+.thread-written-message-author {
+  border-radius: 6px;
+  padding: 8px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.05);
+}
+.thread-written-message-author-avatar {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  position: relative;
+}
+.avatar {
+  border-radius: 20px;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 0%;
+  top: 0%;
+  height: 100%;
+}
+.thread-written-message-author-wallet {
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  position: relative;
+}
+.thread-written-message-author-wallet-adress {
+  color: linear-gradient(
+      267.86deg,
+      rgba(0, 177, 255, 1) 0%,
+      rgba(148, 222, 247, 1) 100%
+    ),
+    linear-gradient(to left, #ffffff, #ffffff);
+  text-align: left;
+  font: 400 16px/20px "-", sans-serif;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.thread-written-message-author-wallet-adress-span {
+  color: #fff;
+  font: 400 16px/20px;
+}
+.thread-written-message-author-wallet-adress-span2 {
+  color: linear-gradient(
+      267.86deg,
+      rgba(0, 177, 255, 1) 0%,
+      rgba(148, 222, 247, 1) 100%
+    ),
+    linear-gradient(to left, #ffffff, #ffffff);
+  font: 700 16px/20px "TtFirsNeueTrl-Bold", sans-serif;
+}
+.thread-written-message-mssg {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+.thread-written-message-mssg-text {
+  color: #ffffff;
+  text-align: left;
+  font: 500 16px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.thread-written-message-mssg-footer {
+  align-self: stretch;
+  flex-shrink: 0;
+  height: 18px;
+  position: relative;
+}
+.thread-written-message-mssg-footer-balance {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+.thread-written-message-mssg-footer-balance-ph-message-mssg-footer-ph {
+  color: #bbbbbb;
+  text-align: right;
+  font: 400 14px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.thread-written-message-mssg-footer-balance-count {
+  color: #ffffff;
+  text-align: right;
+  font: 400 14px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.thread-written-message-mssg-footer-date {
+  color: #bbbbbb;
+  text-align: right;
+  font: 400 14px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.gradient {
+  background: -webkit-linear-gradient(
+    rgba(0, 177, 255, 1),
+    rgba(148, 222, 247, 1)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
