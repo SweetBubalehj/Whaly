@@ -1,13 +1,12 @@
+import { useRouter } from "next/router";
 import Image, { StaticImageData } from "next/image";
 import { motion } from "framer-motion";
-import { minidenticon } from "minidenticons";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import MinidenticonImg from "../MinidactionImg";
 import { useChainData } from "../../hooks/useChainData";
-import { useContractRead } from "wagmi";
 import { ethers } from "ethers";
 
-interface Thread {
+export interface Thread {
   chainId: number;
   contractAddress: string;
   tokenAddress: string;
@@ -15,6 +14,7 @@ interface Thread {
   tokenSymbol: string;
   whaleAddress: string;
   totalBalance: number;
+  isButtonHidden?: boolean;
 }
 
 const ThreadCard: React.FC<Thread> = ({
@@ -25,6 +25,7 @@ const ThreadCard: React.FC<Thread> = ({
   tokenSymbol,
   whaleAddress,
   totalBalance,
+  isButtonHidden,
 }) => {
   const { getChainDataByChainId } = useChainData();
 
@@ -33,6 +34,8 @@ const ThreadCard: React.FC<Thread> = ({
   const [tokenDecimals, setTokenDecimals] = useState<number | undefined>(
     undefined
   );
+  const [isThreadOpen, setIsThreadOpen] = useState(false);
+  const router = useRouter();
 
   const copyAddress = () => {
     if (navigator && navigator.clipboard) {
@@ -43,6 +46,27 @@ const ThreadCard: React.FC<Thread> = ({
         }, 3000);
       });
     }
+  };
+
+  const openThread = () => {
+    const threadData: Thread = {
+      chainId,
+      contractAddress,
+      tokenAddress,
+      commentCount,
+      tokenSymbol,
+      whaleAddress,
+      totalBalance,
+      isButtonHidden,
+    };
+
+    const threadDataJSON = encodeURIComponent(JSON.stringify(threadData));
+
+    // Перейдите на новую страницу, передавая закодированную JSON строку в качестве параметра
+    router.push({
+      pathname: "/thread",
+      query: { threadData: threadDataJSON },
+    });
   };
 
   useEffect(() => {
@@ -103,9 +127,11 @@ const ThreadCard: React.FC<Thread> = ({
                 </div>
               </div>
             </div>
-            <div className="thread-button">
-              <div className="connect-wallet">View thread &gt;</div>
-            </div>
+            {!isButtonHidden && (
+              <div className="thread-button" onClick={openThread}>
+                <div className="connect-wallet">View thread &gt;</div>
+              </div>
+            )}
           </div>
           <div className="line-1"></div>
           <div className="thread-param-1">

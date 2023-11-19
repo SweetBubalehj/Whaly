@@ -52,7 +52,7 @@
 }
 .h-1-span {
   color: var(--white, #ffffff);
-  font: 400 24px "TtFirsNeueTrl-DemiBold", sans-serif;
+  font: 400 24px;
 }
 .h-1-span2 {
   color: var(--white, #ffffff);
@@ -136,7 +136,7 @@
 }
 .ethereum {
   text-align: left;
-  font: 400 16px/20px "TtFirsNeueTrl-DemiBold", sans-serif;
+  font: 400 16px/20px;
   position: relative;
   display: flex;
   align-items: center;
@@ -144,11 +144,11 @@
 }
 .ethereum-span {
   color: var(--midnight-connect-button-text, #ffffff);
-  font: 400 16px/20px "TtFirsNeueTrl-DemiBold", sans-serif;
+  font: 400 16px/20px;
 }
 .ethereum-span2 {
   color: rgba(168, 168, 168, 0);
-  font: 400 16px/20px "TtFirsNeueTrl-DemiBold", sans-serif;
+  font: 400 16px/20px;
 }
 .create-thread-network-dd-icon {
   flex-shrink: 0;
@@ -411,7 +411,7 @@
 .connect-wallet {
   color: var(--white, #ffffff);
   text-align: center;
-  font: 400 18px "TtFirsNeueTrl-DemiBold", sans-serif;
+  font: 400 18px;
   position: relative;
   display: flex;
   align-items: center;

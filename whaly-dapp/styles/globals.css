@@ -102,7 +102,7 @@ body {
 }
 .main-block-h-1 {
   text-align: center;
-  font: 400 48px "TtFirsNeueTrl-DemiBold", sans-serif;
+  font: 400 48px;
   position: relative;
   display: flex;
   align-items: center;
@@ -110,11 +110,11 @@ body {
 }
 .main-block-h-1-span {
   color: var(--white, #ffffff);
-  font: 400 48px "TtFirsNeueTrl-DemiBold", sans-serif;
+  font: 400 48px;
 }
 .main-block-h-1-span2 {
   color: #1472f4;
-  font: 400 48px "TtFirsNeueTrl-DemiBold", sans-serif;
+  font: 400 48px;
 }
 .main-block-text2 {
   color: #bbbbbb;
@@ -432,3 +432,31 @@ body {
   justify-content: flex-end;
 }
 
+.thread_channel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.thread_channel__container {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  width: 90%;
+  max-width: 1372px;
+  min-width: 800px;
+  border-radius: 16px;
+}
+
+.back-to-the-threads {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 16px;
+  /* line-height: 18px; */
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  text-decoration: none;
+}
