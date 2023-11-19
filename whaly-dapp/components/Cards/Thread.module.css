@@ -90,6 +90,7 @@
   position: absolute;
   right: 0px;
   top: 0px;
+  cursor: pointer;
   box-shadow: 0px 6px 24px 0px rgba(0, 56, 255, 0.5);
 }
 .connect-wallet {
@@ -100,7 +101,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
 }
 .thread-write-footer-text {
   color: #bbbbbb;

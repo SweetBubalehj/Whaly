@@ -14,6 +14,7 @@ interface IERC {
 contract WhalyThread is ReentrancyGuard {
     struct Comment {
         string content;
+        uint time;
         uint likes;
         mapping(address => bool) likedBy;
     }
@@ -56,6 +57,7 @@ contract WhalyThread is ReentrancyGuard {
         );
 
         addressToComment[msg.sender].content = _comment;
+        addressToComment[msg.sender].time = block.timestamp;
         commentedAddresses.push(msg.sender);
     }
 
@@ -70,6 +72,21 @@ contract WhalyThread is ReentrancyGuard {
 
         removeAddressFromArray(msg.sender);
         delete addressToComment[msg.sender];
+    }
+
+    /**
+     * @dev Changes the comment of the sender.
+     * @param _comment The new content of the comment.
+     */
+    function changeComment(string memory _comment) public nonReentrant {
+        require(!isEmptyString(_comment), "Empty comment");
+        require(
+            !isEmptyString(addressToComment[msg.sender].content),
+            "No comment"
+        );
+
+        addressToComment[msg.sender].content = _comment;
+        addressToComment[msg.sender].time = block.timestamp;
     }
 
     /**

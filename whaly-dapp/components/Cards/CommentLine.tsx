@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import MinidenticonImg from "../MinidactionImg";
 import styles from "./Thread.module.css";
 
@@ -21,7 +22,12 @@ const CommentLine: React.FC<Comment> = ({
   return (
     <>
       <div className={styles["line"]}></div>
-      <div className={styles["thread-written-message"]}>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, transition: { duration: 1 } }}
+        exit={{ opacity: 0 }}
+        className={styles["thread-written-message"]}
+      >
         <div className={styles["thread-written-message-headeer"]}>
           <div className={styles["thread-written-message-author"]}>
             <div className={styles["thread-written-message-author-avatar"]}>
@@ -94,7 +100,7 @@ const CommentLine: React.FC<Comment> = ({
             </div> */}
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };
