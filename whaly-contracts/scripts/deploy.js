@@ -9,7 +9,9 @@ const hre = require("hardhat");
 async function main() {
   const WhalyFactory = await ethers.getContractFactory("WhalyFactory");
 
-  const token = await WhalyFactory.deploy("");
+  const token = await WhalyFactory.deploy(
+    "ipfs/QmWWWg3v7kdBhUM5ed97JDdeWg9jFhDboQnbY4KvbmTTVA/"
+  );
 
   await token.waitForDeployment();
 

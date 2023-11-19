@@ -28,33 +28,33 @@ const contractData: ContractData[] = [
     ),
     contractAddress: "0x989CAe3630af8534aB27d4C666B8C0615ad22C01",
   },
-  //   {
-  //     chainID: 42161,
-  //     provider: new ethers.providers.JsonRpcProvider(
-  //       `https://arb-mainnet.g.alchemy.com/v2/${String(
-  //         process.env.NEXT_PUBLIC_ALCHEMY_ARBITRUM_API_KEY
-  //       )}`
-  //     ),
-  //     contractAddress: "",
-  //   },
-  //   {
-  //     chainID: 59144,
-  //     provider: new ethers.providers.JsonRpcProvider(
-  //       `https://linea-mainnet.infura.io/v3/${String(
-  //         process.env.NEXT_PUBLIC_INFURA_LINEA_API_KEY
-  //       )}`
-  //     ),
-  //     contractAddress: "",
-  //   },
-  //   {
-  //     chainID: 8453,
-  //     provider: new ethers.providers.JsonRpcProvider(
-  //       `https://base-mainnet.g.alchemy.com/v2/${String(
-  //         process.env.NEXT_PUBLIC_ALCHEMY_BASE_API_KEY
-  //       )}`
-  //     ),
-  //     contractAddress: "",
-  //   },
+  {
+    chainID: 42161,
+    provider: new ethers.providers.JsonRpcProvider(
+      `https://arb-mainnet.g.alchemy.com/v2/${String(
+        process.env.NEXT_PUBLIC_ALCHEMY_ARBITRUM_API_KEY
+      )}`
+    ),
+    contractAddress: "0x8575ed2405b025a8925ae21f6bf18824fe807770",
+  },
+  {
+    chainID: 59144,
+    provider: new ethers.providers.JsonRpcProvider(
+      `https://linea-mainnet.infura.io/v3/${String(
+        process.env.NEXT_PUBLIC_INFURA_LINEA_API_KEY
+      )}`
+    ),
+    contractAddress: "0xa187986a65bdeb3fa4c096bcba5e7944aa39964c",
+  },
+  {
+    chainID: 8453,
+    provider: new ethers.providers.JsonRpcProvider(
+      `https://base-mainnet.g.alchemy.com/v2/${String(
+        process.env.NEXT_PUBLIC_ALCHEMY_BASE_API_KEY
+      )}`
+    ),
+    contractAddress: "0xa187986a65bdeb3fa4c096bcba5e7944aa39964c",
+  },
 ];
 
 const getChainDataByChainId = (chainId: number): ChainData => {

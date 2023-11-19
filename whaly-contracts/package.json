@@ -5,14 +5,20 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy:scrollSepolia": "hardhat run --network scrollSepolia scripts/deploy.scrollSepolia.js"
+    "deploy:scrollSepolia": "hardhat run --network scrollSepolia scripts/deploy.js",
+    "deploy:linea": "hardhat run --network linea_mainnet scripts/deploy.js",
+    "deploy:base": "hardhat run --network base-mainnet scripts/deploy.js",
+    "deploy:arbitrum": "hardhat run --network arbitrum scripts/deploy.js",
+    "deploy:mantle": "hardhat run --network mantle scripts/deploy.js",
+    "deploy:celo": "hardhat run --network celo scripts/deploy.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^4.0.0",
-    "hardhat": "^2.19.1"
+    "hardhat": "^2.19.1",
+    "hardhat-celo": "^0.0.6"
   },
   "dependencies": {
     "@openzeppelin/contracts": "^4.8.0",
