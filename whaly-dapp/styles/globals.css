@@ -57,7 +57,7 @@ body {
     linear-gradient(181deg, #191a2b 0.42%, #000 99.52%);
   font-family: "TT Firs Neue Trl";
 
-  height: 100%;
+  min-height: 100vh;
   width: 100%;
 }
 
@@ -72,8 +72,9 @@ body {
 
 .threads__container {
   margin-top: 40px;
-  display: flex;
+  /* display: flex; */
   justify-content: center;
+  align-items: center;
   padding: 0 24px 0 24px;
   /* width: 90%; */
 }
@@ -83,7 +84,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   gap: 24px;
-  max-width: 1600px;
+  max-width: 1525px;
   margin: 0 auto;
 }
 

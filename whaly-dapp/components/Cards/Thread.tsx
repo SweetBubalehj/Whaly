@@ -17,6 +17,10 @@ import {
 } from "wagmi";
 import { threadABI } from "../../Constants/Contracts";
 
+const isEmptyString = (str: string) => {
+  return str.trim().length === 0;
+};
+
 export const Thread: React.FC<IThread> = ({
   chainId,
   contractAddress,
@@ -73,7 +77,7 @@ export const Thread: React.FC<IThread> = ({
   const { write: changeComment } = useContractWrite(changeCommentConfig);
 
   const writeContract = () => {
-    if (message !== undefined) {
+    if (!isEmptyString(message)) {
       changeComment?.();
     } else {
       addComment?.();
@@ -142,7 +146,7 @@ export const Thread: React.FC<IThread> = ({
           <div className={styles["thread-write-footer"]}>
             <div className={styles["button"]}>
               <div className={styles["connect-wallet"]} onClick={writeContract}>
-                {message !== undefined ? "Update Message" : "Send message"}
+                {!isEmptyString(message) ? "Update Message" : "Send message"}
               </div>
             </div>
             <div className={styles["thread-write-footer-text"]}>
