@@ -50,7 +50,7 @@ const scrollSepoliaWithIcon: ChainWithIcon = {
 };
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
-  [base, lineaWithIcon, mantleWithIcon, xdcWithIcon, arbitrum, celoWithIcon, scrollSepoliaWithIcon],
+  [base, lineaWithIcon, arbitrum, celoWithIcon, scrollSepoliaWithIcon],
   [publicProvider()]
 );
 

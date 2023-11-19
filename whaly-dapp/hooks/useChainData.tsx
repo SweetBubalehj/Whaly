@@ -55,6 +55,11 @@ const contractData: ContractData[] = [
     ),
     contractAddress: "0xa187986a65bdeb3fa4c096bcba5e7944aa39964c",
   },
+  {
+    chainID: 42220,
+    provider: new ethers.providers.JsonRpcProvider("https://forno.celo.org/"),
+    contractAddress: "0xA187986a65bDEB3FA4c096bCbA5E7944AA39964C",
+  },
 ];
 
 const getChainDataByChainId = (chainId: number): ChainData => {
@@ -69,36 +74,46 @@ const getChainDataByChainId = (chainId: number): ChainData => {
         image: svg.scroll,
         coinImage: svg.ethereum,
       };
-    // case 42161:
-    //   return {
-    //     id: contractData[2].chainID,
-    //     name: "Arbitrum",
-    //     coin: "ETH",
-    //     contractAddress: contractData[2].contractAddress,
-    //     provider: contractData[2].provider,
-    //     image: svg.arbitrum,
-    //     coinImage: svg.ethereum,
-    //   };
-    // case 59144:
-    //   return {
-    //     id: contractData[4].chainID,
-    //     name: "Linea",
-    //     coin: "ETH",
-    //     contractAddress: contractData[4].contractAddress,
-    //     provider: contractData[4].provider,
-    //     image: svg.linea,
-    //     coinImage: svg.ethereum,
-    //   };
-    // case 8453:
-    //   return {
-    //     id: contractData[5].chainID,
-    //     name: "Base",
-    //     coin: "ETH",
-    //     contractAddress: contractData[5].contractAddress,
-    //     provider: contractData[5].provider,
-    //     image: svg.base,
-    //     coinImage: svg.ethereum,
-    //   };
+    case 42161:
+      return {
+        id: contractData[1].chainID,
+        name: "Arbitrum",
+        coin: "ETH",
+        contractAddress: contractData[1].contractAddress,
+        provider: contractData[1].provider,
+        image: svg.arbitrum,
+        coinImage: svg.ethereum,
+      };
+    case 59144:
+      return {
+        id: contractData[2].chainID,
+        name: "Linea",
+        coin: "ETH",
+        contractAddress: contractData[2].contractAddress,
+        provider: contractData[2].provider,
+        image: svg.linea,
+        coinImage: svg.ethereum,
+      };
+    case 8453:
+      return {
+        id: contractData[3].chainID,
+        name: "Base",
+        coin: "ETH",
+        contractAddress: contractData[3].contractAddress,
+        provider: contractData[3].provider,
+        image: svg.base,
+        coinImage: svg.ethereum,
+      };
+    case 42220:
+      return {
+        id: contractData[4].chainID,
+        name: "Celo",
+        coin: "CELO",
+        contractAddress: contractData[4].contractAddress,
+        provider: contractData[4].provider,
+        image: svg.celo,
+        coinImage: svg.celo,
+      };
     default:
       return {
         id: 0,
