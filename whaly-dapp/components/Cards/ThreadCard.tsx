@@ -97,7 +97,7 @@ const ThreadCard: React.FC<Thread> = ({
       animate={{ opacity: 1, transition: { duration: 1 } }}
       exit={{ opacity: 0 }}
     >
-      <div className="thread">
+      <div className="thread" style={{ margin: 15 }}>
         <div className="thread-wrapper">
           <div className="thread-header">
             <div className="thread-sub-header">
@@ -164,8 +164,8 @@ const ThreadCard: React.FC<Thread> = ({
             <div className="thread-wallet-adress2">
               {Number(
                 tokenDecimals !== undefined
-                  ? totalBalance / 10 ** 18
-                  : totalBalance
+                  ? parseInt(String(totalBalance / 10 ** 18))
+                  : parseInt(String(totalBalance))
               )}{" "}
               {tokenSymbol}
             </div>

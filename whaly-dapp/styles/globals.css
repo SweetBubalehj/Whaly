@@ -71,12 +71,12 @@ body {
 }
 
 .threads__container {
+  margin: 0 auto;
   margin-top: 40px;
-  /* display: flex; */
-  justify-content: center;
-  align-items: center;
+  display: flex;
+  max-width: 1225px;
   padding: 0 24px 0 24px;
-  /* width: 90%; */
+  flex-wrap: wrap;
 }
 
 .threads__container__grid {
@@ -103,7 +103,8 @@ body {
 }
 .main-block-h-1 {
   text-align: center;
-  font: 400 48px;
+  font: 400;
+  font-size: 48px;
   position: relative;
   display: flex;
   align-items: center;
@@ -120,7 +121,8 @@ body {
 .main-block-text2 {
   color: #bbbbbb;
   text-align: right;
-  font: 400 18px;
+  font: 400;
+  font-size: 18px;
   position: relative;
   display: flex;
   align-items: center;

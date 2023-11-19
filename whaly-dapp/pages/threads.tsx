@@ -25,11 +25,11 @@ const Threads = () => {
         </div>
       ) : (
         <div className="threads__container">
-          {threadData.map((data, index) => (
-            <div className="threads__container__grid" key={index}>
-              {data.contractAddresses.map((contractAddress, innerIndex) => (
+          {/* <div className="threads__container__header"> */}
+            {threadData.map((data, index) =>
+              data.contractAddresses.map((contractAddress, innerIndex) => (
                 <ThreadCard
-                  key={innerIndex}
+                  key={`${index}-${innerIndex}`}
                   chainId={data.chainId}
                   contractAddress={contractAddress}
                   tokenAddress={data.tokenAddresses[innerIndex]}
@@ -38,10 +38,10 @@ const Threads = () => {
                   whaleAddress={data.whaleAddresses[innerIndex]}
                   totalBalance={data.totalBalances[innerIndex]}
                 />
-              ))}
-            </div>
-          ))}
-        </div>
+              ))
+            )}
+          </div>
+        // </div>
       )}
     </div>
   );
